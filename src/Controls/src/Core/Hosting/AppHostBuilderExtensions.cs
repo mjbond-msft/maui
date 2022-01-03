@@ -69,6 +69,15 @@ namespace Microsoft.Maui.Controls.Hosting
 			{ typeof(TabbedPage), typeof(Controls.Handlers.TabbedPageHandler) },
 			{ typeof(FlyoutPage), typeof(FlyoutViewHandler) },
 #endif
+#if WINDOWS
+			{ typeof(ListView), typeof(Controls.Handlers.Compatibility.ListViewRenderer) },
+			{ typeof(Cell), typeof(Controls.Handlers.Compatibility.CellRenderer) },
+			{ typeof(ImageCell), typeof(Handlers.Compatibility.ImageCellRenderer) },
+			{ typeof(EntryCell), typeof(Handlers.Compatibility.EntryCellRenderer) },
+			{ typeof(TextCell), typeof(Handlers.Compatibility.TextCellRenderer) },
+			{ typeof(ViewCell), typeof(Handlers.Compatibility.ViewCellRenderer) },
+			{ typeof(SwitchCell), typeof(Handlers.Compatibility.SwitchCellRenderer) },
+#endif
 		};
 
 		public static IMauiHandlersCollection AddMauiControlsHandlers(this IMauiHandlersCollection handlersCollection)
