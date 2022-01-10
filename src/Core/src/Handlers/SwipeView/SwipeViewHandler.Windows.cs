@@ -71,38 +71,6 @@ namespace Microsoft.Maui.Handlers
 			UpdateSwipeBehaviorOnInvoked(view.BottomItems, view, handler.TypedNativeView);
 		}
 
-		public override Size GetDesiredSize(double widthConstraint, double heightConstraint)
-		{
-			if (NativeView.Parent != null)
-				return base.GetDesiredSize(widthConstraint, heightConstraint);
-			else
-			{
-				if (widthConstraint * heightConstraint == 0)
-					return new Size(0, 0);
-
-				double width = Math.Max(0, VirtualView.Width);
-				double height = Math.Max(0, VirtualView.Height);
-				var result = new Size(width, height);
-
-				double w = VirtualView.Width;
-				double h = VirtualView.Height;
-
-				if (w == -1)
-					w = widthConstraint;
-
-				if (h == -1)
-					h = heightConstraint;
-
-				w = Math.Max(0, w);
-				h = Math.Max(0, h);
-
-				// SwipeLayout sometimes crashes when Measure if not previously fully loaded into the VisualTree.
-				NativeView.Loaded += (sender, args) => { NativeView.Measure(new global::Windows.Foundation.Size(w, h)); };
-
-				return result;
-			}
-		}
-
 		static void UpdateSwipeMode(ISwipeItems swipeItems, ISwipeView swipeView, WSwipeControl swipeControl)
 		{
 			var windowsSwipeItems = GetWindowsSwipeItems(swipeItems, swipeView, swipeControl);
