@@ -55,6 +55,12 @@ namespace Microsoft.Maui.Handlers
 			NativeView.Loaded += OnLoaded;
 		}
 
+		protected override void DisconnectHandler(WSwipeControl nativeView)
+		{
+			base.DisconnectHandler(nativeView);
+			NativeView.Loaded -= OnLoaded;
+		}
+
 		void OnLoaded(object sender, UI.Xaml.RoutedEventArgs e)
 		{
 			if (!NativeView.IsLoaded)
@@ -62,28 +68,33 @@ namespace Microsoft.Maui.Handlers
 
 			UpdateValue(nameof(ISwipeView.LeftItems));
 			UpdateValue(nameof(ISwipeView.RightItems));
-			UpdateValue(nameof(ISwipeView.BottomItems));
-			UpdateValue(nameof(ISwipeView.TopItems));
+			NativeView.Loaded -= OnLoaded;
 		}
 
 		public static void MapLeftItems(ISwipeViewHandler handler, ISwipeView view)
 		{
-			UpdateSwipeItems(SwipeDirection.Left, handler, view, (items) => handler.TypedNativeView.LeftItems = items, view.LeftItems);
+			if (!handler.TypedNativeView.IsLoaded)
+				return;
+
+			UpdateSwipeItems(SwipeDirection.Left, handler, view, (items) => handler.TypedNativeView.LeftItems = items, view.LeftItems, handler.TypedNativeView.LeftItems);
 		}
 
 		public static void MapTopItems(ISwipeViewHandler handler, ISwipeView view)
 		{
-			UpdateSwipeItems(SwipeDirection.Up, handler, view, (items) => handler.TypedNativeView.TopItems = items, view.TopItems);
+			UpdateSwipeItems(SwipeDirection.Up, handler, view, (items) => handler.TypedNativeView.TopItems = items, view.TopItems, handler.TypedNativeView.TopItems);
 		}
 
 		public static void MapRightItems(ISwipeViewHandler handler, ISwipeView view)
 		{
-			UpdateSwipeItems(SwipeDirection.Right, handler, view, (items) => handler.TypedNativeView.RightItems = items, view.RightItems);
+			if (!handler.TypedNativeView.IsLoaded)
+				return;
+
+			UpdateSwipeItems(SwipeDirection.Right, handler, view, (items) => handler.TypedNativeView.RightItems = items, view.RightItems, handler.TypedNativeView.RightItems);
 		}
 
 		public static void MapBottomItems(ISwipeViewHandler handler, ISwipeView view)
 		{
-			UpdateSwipeItems(SwipeDirection.Down, handler, view, (items) => handler.TypedNativeView.BottomItems = items, view.BottomItems);
+			UpdateSwipeItems(SwipeDirection.Down, handler, view, (items) => handler.TypedNativeView.BottomItems = items, view.BottomItems, handler.TypedNativeView.BottomItems);
 		}
 
 		static void UpdateSwipeItems(
@@ -91,20 +102,19 @@ namespace Microsoft.Maui.Handlers
 			ISwipeViewHandler handler,
 			ISwipeView view,
 			Action<WSwipeItems> setSwipeItems,
-			ISwipeItems swipeItems)
+			ISwipeItems swipeItems,
+			WSwipeItems wSwipeItems)
 		{
-			if (!handler.TypedNativeView.IsLoaded)
-				return;
-
 			var items = CreateSwipeItems(swipeDirection, handler);
 
 			try
 			{
-				setSwipeItems(items);
+				if(wSwipeItems != null || items.Count > 0)
+					setSwipeItems(items);
 			}
 			catch
 			{
-				// Log WinUI BUG for this
+				//https://github.com/microsoft/microsoft-ui-xaml/issues/6571			
 			}
 
 			UpdateSwipeMode(swipeItems, view, handler.TypedNativeView);
