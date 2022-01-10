@@ -5,8 +5,13 @@ namespace Microsoft.Maui.Handlers
 {
 	public partial class SwipeItemMenuItemHandler
 	{
-		public static IPropertyMapper<ISwipeItemMenuItem, SwipeItemMenuItemHandler> Mapper = new PropertyMapper<ISwipeItemMenuItem, SwipeItemMenuItemHandler>(ViewHandler.ViewMapper)
-		{
+		public static IPropertyMapper<ISwipeItemMenuItem, SwipeItemMenuItemHandler> Mapper =
+#if WINDOWS
+			new PropertyMapper<ISwipeItemMenuItem, SwipeItemMenuItemHandler>(ViewHandler.ElementMapper)
+#else
+			new PropertyMapper<ISwipeItemMenuItem, SwipeItemMenuItemHandler>(ViewHandler.ViewMapper)
+#endif
+			{
 			[nameof(ISwipeItemMenuItem.Visibility)] = MapVisibility,
 			[nameof(IView.Background)] = MapBackground,
 			[nameof(IMenuElement.Text)] = MapText,
@@ -16,8 +21,13 @@ namespace Microsoft.Maui.Handlers
 
 		};
 
-		public static CommandMapper<ISwipeItemMenuItem, ISwipeViewHandler> CommandMapper = new(ViewHandler.ViewCommandMapper)
-		{
+		public static CommandMapper<ISwipeItemMenuItem, ISwipeViewHandler> CommandMapper =
+#if WINDOWS
+			new(ElementHandler.ElementCommandMapper)
+#else
+			new(ViewHandler.ViewCommandMapper)
+#endif
+			{
 		};
 
 		ImageSourcePartLoader? _imageSourcePartLoader;
