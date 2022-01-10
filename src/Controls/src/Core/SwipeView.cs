@@ -71,7 +71,51 @@ namespace Microsoft.Maui.Controls
 
 		static void OnSwipeItemsChanged(BindableObject bindable, object oldValue, object newValue)
 		{
-			((SwipeView)bindable).UpdateSwipeItemsParent((SwipeItems)newValue);
+			if (bindable is not SwipeView swipeView)
+				return;
+
+			swipeView.UpdateSwipeItemsParent((SwipeItems)newValue);
+
+			if(oldValue is SwipeItems oldItems)
+			{
+				oldItems.CollectionChanged -= SwipeItemsCollectionChanged;
+				oldItems.PropertyChanged -= SwipeItemsPropertyChanged;
+			}
+
+			if(newValue is SwipeItems newItems)
+			{
+				newItems.CollectionChanged += SwipeItemsCollectionChanged;
+				newItems.PropertyChanged += SwipeItemsPropertyChanged;
+			}
+
+			void SwipeItemsPropertyChanged(object sender, PropertyChangedEventArgs e) =>
+				SendChange((SwipeItems)sender);
+
+			void SwipeItemsCollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e) =>
+				SendChange();
+
+			void SendChange(SwipeItems swipeItems)
+			{
+				
+			}
+
+			string? GetSwipeItems(SwipeItems swipeItems)
+			{
+
+				if (swipeItems == swipeView.LeftItems)
+					return nameof(LeftItems);
+
+				if (swipeItems == swipeView.RightItems)
+					return nameof(RightItems);
+
+				if (swipeItems == swipeView.TopItems)
+					return nameof(TopItems);
+
+				if (swipeItems == swipeView.BottomItems)
+					return nameof(BottomItems);
+
+				return null;
+			}
 		}
 
 		public event EventHandler<SwipeStartedEventArgs> SwipeStarted;

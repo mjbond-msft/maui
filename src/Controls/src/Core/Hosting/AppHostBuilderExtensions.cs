@@ -18,6 +18,7 @@ namespace Microsoft.Maui.Controls.Hosting
 
 #if WINDOWS
 			{ typeof(CollectionView), typeof(CollectionViewHandler) },
+			{ typeof(SwipeItemView), typeof(SwipeItemMenuItemHandler) },
 #endif
 
 #if WINDOWS || __ANDROID__
@@ -65,12 +66,12 @@ namespace Microsoft.Maui.Controls.Hosting
 #if WINDOWS || ANDROID
 			{ typeof(NavigationPage), typeof(NavigationViewHandler) },
 			{ typeof(Toolbar), typeof(ToolbarHandler) },
+			{ typeof(SwipeView), typeof(SwipeViewHandler) },
+			{ typeof(SwipeItem), typeof(SwipeItemMenuItemHandler) },
 #endif
 #if ANDROID
 			{ typeof(TabbedPage), typeof(Controls.Handlers.TabbedPageHandler) },
 			{ typeof(FlyoutPage), typeof(FlyoutViewHandler) },
-			{ typeof(SwipeView), typeof(SwipeViewHandler) },
-			{ typeof(SwipeItem), typeof(SwipeItemMenuItemHandler) },
 			{ typeof(SwipeItemView), typeof(SwipeItemViewHandler) },
 #endif
 		};
