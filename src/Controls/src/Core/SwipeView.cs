@@ -92,29 +92,21 @@ namespace Microsoft.Maui.Controls
 				SendChange((SwipeItems)sender);
 
 			void SwipeItemsCollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e) =>
-				SendChange();
+				SendChange((SwipeItems)sender);
 
 			void SendChange(SwipeItems swipeItems)
 			{
-				
-			}
-
-			string? GetSwipeItems(SwipeItems swipeItems)
-			{
-
 				if (swipeItems == swipeView.LeftItems)
-					return nameof(LeftItems);
+					swipeView?.Handler?.UpdateValue(nameof(LeftItems));
 
 				if (swipeItems == swipeView.RightItems)
-					return nameof(RightItems);
+					swipeView?.Handler?.UpdateValue(nameof(RightItems));
 
 				if (swipeItems == swipeView.TopItems)
-					return nameof(TopItems);
+					swipeView?.Handler?.UpdateValue(nameof(TopItems));
 
 				if (swipeItems == swipeView.BottomItems)
-					return nameof(BottomItems);
-
-				return null;
+					swipeView?.Handler?.UpdateValue(nameof(BottomItems));
 			}
 		}
 
