@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.UI.Xaml.Media;
-using WSwipeItem = Microsoft.UI.Xaml.Controls.SwipeItem;
+﻿using WSwipeItem = Microsoft.UI.Xaml.Controls.SwipeItem;
 
 namespace Microsoft.Maui.Handlers
 {
@@ -35,9 +31,9 @@ namespace Microsoft.Maui.Handlers
 
 		public static void MapVisibility(SwipeItemMenuItemHandler handler, ISwipeItemMenuItem view) { }
 
-		void OnSetImageSource(ImageSource? obj)
+		public static void MapSource(SwipeItemMenuItemHandler handler, ISwipeItemMenuItem view)
 		{
-		
+			handler.NativeView.IconSource = view.Source?.ToIconSource(handler.MauiContext!);
 		}
 
 		protected override void ConnectHandler(WSwipeItem nativeView)

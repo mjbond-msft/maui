@@ -18,7 +18,6 @@ namespace Microsoft.Maui.Controls.Hosting
 
 #if WINDOWS
 			{ typeof(CollectionView), typeof(CollectionViewHandler) },
-			{ typeof(SwipeItemView), typeof(SwipeItemMenuItemHandler) },
 #endif
 
 #if WINDOWS || __ANDROID__

@@ -173,7 +173,8 @@ namespace Microsoft.Maui.Handlers
 
 			foreach (var item in items)
 			{
-				if (item.ToHandler(handler.MauiContext!).NativeView is WSwipeItem swipeItem)
+				if (item is ISwipeItemMenuItem &&
+					item.ToHandler(handler.MauiContext!).NativeView is WSwipeItem swipeItem)
 				{
 					swipeItem.BehaviorOnInvoked = items.SwipeBehaviorOnInvoked.ToNative();
 					swipeItems.Add(swipeItem);

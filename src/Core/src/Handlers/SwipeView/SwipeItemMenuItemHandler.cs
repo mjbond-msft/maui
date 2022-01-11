@@ -6,33 +6,21 @@ namespace Microsoft.Maui.Handlers
 	public partial class SwipeItemMenuItemHandler
 	{
 		public static IPropertyMapper<ISwipeItemMenuItem, SwipeItemMenuItemHandler> Mapper =
-#if WINDOWS
 			new PropertyMapper<ISwipeItemMenuItem, SwipeItemMenuItemHandler>(ViewHandler.ElementMapper)
-#else
-			new PropertyMapper<ISwipeItemMenuItem, SwipeItemMenuItemHandler>(ViewHandler.ViewMapper)
-#endif
 			{
-			[nameof(ISwipeItemMenuItem.Visibility)] = MapVisibility,
-			[nameof(IView.Background)] = MapBackground,
-			[nameof(IMenuElement.Text)] = MapText,
-			[nameof(ITextStyle.TextColor)] = MapTextColor,
-			[nameof(ITextStyle.CharacterSpacing)] = MapCharacterSpacing,
-			[nameof(ITextStyle.Font)] = MapFont,
-
-		};
+				[nameof(ISwipeItemMenuItem.Visibility)] = MapVisibility,
+				[nameof(IView.Background)] = MapBackground,
+				[nameof(IMenuElement.Text)] = MapText,
+				[nameof(ITextStyle.TextColor)] = MapTextColor,
+				[nameof(ITextStyle.CharacterSpacing)] = MapCharacterSpacing,
+				[nameof(ITextStyle.Font)] = MapFont,
+				[nameof(IMenuElement.Source)] = MapSource,
+			};
 
 		public static CommandMapper<ISwipeItemMenuItem, ISwipeViewHandler> CommandMapper =
-#if WINDOWS
 			new(ElementHandler.ElementCommandMapper)
-#else
-			new(ViewHandler.ViewCommandMapper)
-#endif
 			{
-		};
-
-		ImageSourcePartLoader? _imageSourcePartLoader;
-		public ImageSourcePartLoader SourceLoader =>
-			_imageSourcePartLoader ??= new ImageSourcePartLoader(this, () => VirtualView, OnSetImageSource);
+			};
 
 
 		public SwipeItemMenuItemHandler() : base(Mapper, CommandMapper)
@@ -50,6 +38,11 @@ namespace Microsoft.Maui.Handlers
 
 		}
 
+#if !WINDOWS
+		ImageSourcePartLoader? _imageSourcePartLoader;
+		public ImageSourcePartLoader SourceLoader =>
+			_imageSourcePartLoader ??= new ImageSourcePartLoader(this, () => VirtualView, OnSetImageSource);
+
 		public static void MapSource(SwipeItemMenuItemHandler handler, ISwipeItemMenuItem image) =>
 			MapSourceAsync(handler, image).FireAndForget(handler);
 
@@ -57,5 +50,6 @@ namespace Microsoft.Maui.Handlers
 		{
 			return handler.SourceLoader.UpdateImageSourceAsync();
 		}
+#endif
 	}
 }
