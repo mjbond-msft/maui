@@ -55,7 +55,7 @@ namespace Microsoft.Maui.Controls
 			child.PropertyChanged -= OnPropertyChanged;
 		}
 
-		void OnPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+		void OnPropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
 		{
 			if (e.PropertyName == VisualElement.IsEnabledProperty.PropertyName)
 				Handler?.UpdateValue(nameof(IsEnabled));
