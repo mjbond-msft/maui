@@ -332,7 +332,7 @@ stages:
           **/signed/*.nupkg
           **/*.snupkg
           **/additional-assets.zip
-        pushToShippingFeed: true
+        pushToShippingFeed: false
         nupkgArtifactName: nuget
         nupkgArtifactPatterns: |
           **/signed/*.nupkg
