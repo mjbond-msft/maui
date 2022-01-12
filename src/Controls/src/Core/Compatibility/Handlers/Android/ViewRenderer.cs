@@ -33,7 +33,6 @@ namespace Microsoft.Maui.Controls.Handlers.Compatibility
 			throw new NotImplementedException();
 		}
 
-
 		private protected override void OnConnectHandler(AView nativeView)
 		{
 			base.OnConnectHandler(nativeView);
