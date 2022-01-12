@@ -9,6 +9,7 @@ using Microsoft.Maui.Controls.Shapes;
 using Microsoft.Maui.Graphics;
 using Microsoft.Maui.Hosting;
 using Microsoft.Maui.LifecycleEvents;
+using Microsoft.Maui.Controls.Handlers.Compatibility;
 
 #if __ANDROID__
 using Microsoft.Maui.Controls.Compatibility.Platform.Android;
@@ -79,6 +80,15 @@ namespace Microsoft.Maui.Controls.Hosting
 					handlers.TryAddCompatibilityRenderer(typeof(TextCell), typeof(TextCellRenderer));
 					handlers.TryAddCompatibilityRenderer(typeof(ViewCell), typeof(ViewCellRenderer));
 					handlers.TryAddCompatibilityRenderer(typeof(SwitchCell), typeof(SwitchCellRenderer));
+#elif ANDROID
+					handlers.AddHandler(typeof(ListView), typeof(ListViewRenderer));
+					handlers.AddHandler(typeof(Cell), typeof(CellRenderer));
+					handlers.AddHandler(typeof(ImageCell), typeof(ImageCellRenderer));
+					handlers.AddHandler(typeof(EntryCell), typeof(EntryCellRenderer));
+					handlers.AddHandler(typeof(TextCell), typeof(TextCellRenderer));
+					handlers.AddHandler(typeof(ViewCell), typeof(ViewCellRenderer));
+					handlers.AddHandler(typeof(SwitchCell), typeof(SwitchCellRenderer));
+
 #endif
 
 #if __ANDROID__ || __IOS__ || WINDOWS || MACCATALYST
