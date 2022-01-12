@@ -70,6 +70,17 @@ namespace Microsoft.Maui.Controls.Hosting
 					handlers.AddMauiControlsHandlers();
 					DependencyService.SetToInitialized();
 
+#if IOS || WINDOWS || MACCATALYST
+
+					handlers.TryAddCompatibilityRenderer(typeof(ListView), typeof(ListViewRenderer));
+					handlers.TryAddCompatibilityRenderer(typeof(Cell), typeof(CellRenderer));
+					handlers.TryAddCompatibilityRenderer(typeof(ImageCell), typeof(ImageCellRenderer));
+					handlers.TryAddCompatibilityRenderer(typeof(EntryCell), typeof(EntryCellRenderer));
+					handlers.TryAddCompatibilityRenderer(typeof(TextCell), typeof(TextCellRenderer));
+					handlers.TryAddCompatibilityRenderer(typeof(ViewCell), typeof(ViewCellRenderer));
+					handlers.TryAddCompatibilityRenderer(typeof(SwitchCell), typeof(SwitchCellRenderer));
+#endif
+
 #if __ANDROID__ || __IOS__ || WINDOWS || MACCATALYST
 
 					handlers.TryAddCompatibilityRenderer(typeof(Frame), typeof(FrameRenderer));
@@ -81,7 +92,6 @@ namespace Microsoft.Maui.Controls.Hosting
 					handlers.TryAddCompatibilityRenderer(typeof(Button), typeof(ButtonRenderer));
 					handlers.TryAddCompatibilityRenderer(typeof(ImageButton), typeof(ImageButtonRenderer));
 					handlers.TryAddCompatibilityRenderer(typeof(TableView), typeof(TableViewRenderer));
-					handlers.TryAddCompatibilityRenderer(typeof(ListView), typeof(ListViewRenderer));
 					handlers.TryAddCompatibilityRenderer(typeof(CollectionView), typeof(CollectionViewRenderer));
 					handlers.TryAddCompatibilityRenderer(typeof(CarouselView), typeof(CarouselViewRenderer));
 					handlers.TryAddCompatibilityRenderer(typeof(Path), typeof(PathRenderer));
@@ -119,12 +129,6 @@ namespace Microsoft.Maui.Controls.Hosting
 					handlers.TryAddCompatibilityRenderer(typeof(FlyoutPage), typeof(FlyoutPageRenderer));
 					handlers.TryAddCompatibilityRenderer(typeof(RefreshView), typeof(RefreshViewRenderer));
 					handlers.TryAddCompatibilityRenderer(typeof(NativeViewWrapper), typeof(NativeViewWrapperRenderer));
-					handlers.TryAddCompatibilityRenderer(typeof(Cell), typeof(CellRenderer));
-					handlers.TryAddCompatibilityRenderer(typeof(ImageCell), typeof(ImageCellRenderer));
-					handlers.TryAddCompatibilityRenderer(typeof(EntryCell), typeof(EntryCellRenderer));
-					handlers.TryAddCompatibilityRenderer(typeof(TextCell), typeof(TextCellRenderer));
-					handlers.TryAddCompatibilityRenderer(typeof(ViewCell), typeof(ViewCellRenderer));
-					handlers.TryAddCompatibilityRenderer(typeof(SwitchCell), typeof(SwitchCellRenderer));
 
 
 					handlers.TryAddCompatibilityRenderer(typeof(Microsoft.Maui.Controls.Compatibility.RelativeLayout), typeof(DefaultRenderer));
