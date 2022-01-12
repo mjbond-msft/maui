@@ -358,7 +358,7 @@ namespace Microsoft.Maui.Controls.Handlers.Compatibility
 					if (_footerView != null)
 						_footerView.Child = null;
 
-					_footerRenderer.VirtualView.Handler = null;
+					_footerRenderer.VirtualView.Handler?.DisconnectHandler();
 					_footerRenderer = null;
 				}
 			}
@@ -387,7 +387,7 @@ namespace Microsoft.Maui.Controls.Handlers.Compatibility
 				{
 					if (_headerView != null)
 						_headerView.Child = null;
-					_headerRenderer.VirtualView.Handler = null;
+					_headerRenderer.VirtualView.Handler?.DisconnectHandler();
 					_headerRenderer = null;
 				}
 			}
