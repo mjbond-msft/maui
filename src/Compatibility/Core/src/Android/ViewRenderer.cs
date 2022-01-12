@@ -29,7 +29,6 @@ namespace Microsoft.Maui.Controls.Compatibility.Platform.Android
 
 		protected virtual TNativeView CreateNativeControl()
 		{
-			this.SetNativeControl
 			return default(TNativeView);
 		}
 
