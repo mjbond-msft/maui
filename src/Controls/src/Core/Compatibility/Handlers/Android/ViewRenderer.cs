@@ -17,6 +17,7 @@ namespace Microsoft.Maui.Controls.Handlers.Compatibility
 		where TNativeView : PlatformView
 	{
 
+		TNativeView? _nativeView;
 		// The casts here are to get around the fact that if you access VirtualView
 		// before it's been initialized you'll get an exception
 		public TElement? Element => ((IElementHandler)this).VirtualView as TElement;
@@ -30,7 +31,21 @@ namespace Microsoft.Maui.Controls.Handlers.Compatibility
 
 		protected override TNativeView CreateNativeView()
 		{
-			throw new NotImplementedException();
+			var nativeView = _nativeView;
+			_nativeView = null;
+			return nativeView ?? throw new NotImplementedException();
+		}
+
+		protected virtual TNativeView CreateNativeControl() => CreateNativeView();
+
+		protected void SetNativeControl(TNativeView control)
+		{			
+			if(NativeView != null && control != null)
+			{
+				throw new NotImplementedException("Changing the NativeView is currently not supported");
+			}
+
+			_nativeView = control;
 		}
 
 		private protected override void OnConnectHandler(AView nativeView)
