@@ -2,6 +2,7 @@ using System;
 
 namespace Microsoft.Maui.Controls
 {
+	/// <include file="../../docs/Microsoft.Maui.Controls/SelectedPositionChangedEventArgs.xml" path="Type[@FullName='Microsoft.Maui.Controls.SelectedPositionChangedEventArgs']/Docs" />
 	public class SelectedPositionChangedEventArgs : EventArgs
 	{
 		public SelectedPositionChangedEventArgs(int selectedPosition)
@@ -9,6 +10,7 @@ namespace Microsoft.Maui.Controls
 			SelectedPosition = selectedPosition;
 		}
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/SelectedPositionChangedEventArgs.xml" path="//Member[@MemberName='SelectedPosition']/Docs" />
 		public object SelectedPosition { get; private set; }
 	}
 }

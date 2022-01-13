@@ -2,6 +2,7 @@ using System;
 
 namespace Microsoft.Maui.Controls
 {
+	/// <include file="../../docs/Microsoft.Maui.Controls/RelativeBindingSource.xml" path="Type[@FullName='Microsoft.Maui.Controls.RelativeBindingSource']/Docs" />
 	public sealed class RelativeBindingSource
 	{
 		static RelativeBindingSource _self;
@@ -27,21 +28,25 @@ namespace Microsoft.Maui.Controls
 			AncestorLevel = ancestorLevel;
 		}
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/RelativeBindingSource.xml" path="//Member[@MemberName='Mode']/Docs" />
 		public RelativeBindingSourceMode Mode
 		{
 			get;
 		}
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/RelativeBindingSource.xml" path="//Member[@MemberName='AncestorType']/Docs" />
 		public Type AncestorType
 		{
 			get;
 		}
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/RelativeBindingSource.xml" path="//Member[@MemberName='AncestorLevel']/Docs" />
 		public int AncestorLevel
 		{
 			get;
 		}
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/RelativeBindingSource.xml" path="//Member[@MemberName='Self']/Docs" />
 		public static RelativeBindingSource Self
 		{
 			get
@@ -50,6 +55,7 @@ namespace Microsoft.Maui.Controls
 			}
 		}
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/RelativeBindingSource.xml" path="//Member[@MemberName='TemplatedParent']/Docs" />
 		public static RelativeBindingSource TemplatedParent
 		{
 			get

@@ -5,6 +5,7 @@ using System.Xml;
 namespace Microsoft.Maui.Controls.Xaml
 {
 #if !NETSTANDARD1_0
+	/// <include file="../../docs/Microsoft.Maui.Controls.Xaml/XamlParseException.xml" path="Type[@FullName='Microsoft.Maui.Controls.Xaml.XamlParseException']/Docs" />
 	[Serializable]
 #endif
 	public class XamlParseException : Exception
@@ -42,6 +43,7 @@ namespace Microsoft.Maui.Controls.Xaml
 			XmlInfo = xmlInfo;
 		}
 
+		/// <include file="../../docs/Microsoft.Maui.Controls.Xaml/XamlParseException.xml" path="//Member[@MemberName='XmlInfo']/Docs" />
 		public IXmlLineInfo XmlInfo { get; private set; }
 		internal string UnformattedMessage => _unformattedMessage ?? Message;
 

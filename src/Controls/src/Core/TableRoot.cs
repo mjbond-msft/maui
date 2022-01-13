@@ -4,6 +4,7 @@ using System.ComponentModel;
 
 namespace Microsoft.Maui.Controls
 {
+	/// <include file="../../docs/Microsoft.Maui.Controls/TableRoot.xml" path="Type[@FullName='Microsoft.Maui.Controls.TableRoot']/Docs" />
 	public sealed class TableRoot : TableSectionBase<TableSection>
 	{
 		public TableRoot()

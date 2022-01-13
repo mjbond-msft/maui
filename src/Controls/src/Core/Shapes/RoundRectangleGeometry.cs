@@ -2,6 +2,7 @@ using Microsoft.Maui.Graphics;
 using Rect = Microsoft.Maui.Graphics.Rectangle;
 namespace Microsoft.Maui.Controls.Shapes
 {
+	/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/RoundRectangleGeometry.xml" path="Type[@FullName='Microsoft.Maui.Controls.Shapes.RoundRectangleGeometry']/Docs" />
 	public class RoundRectangleGeometry : GeometryGroup
 	{
 		public RoundRectangleGeometry()
@@ -15,6 +16,7 @@ namespace Microsoft.Maui.Controls.Shapes
 			Rect = rect;
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/RoundRectangleGeometry.xml" path="//Member[@MemberName='RectProperty']/Docs" />
 		public static readonly BindableProperty RectProperty =
 		   BindableProperty.Create(nameof(Rect), typeof(Rect), typeof(RoundRectangleGeometry), new Rect(),
 			   propertyChanged: OnRectChanged);
@@ -24,12 +26,14 @@ namespace Microsoft.Maui.Controls.Shapes
 			(bindable as RoundRectangleGeometry)?.UpdateGeometry();
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/RoundRectangleGeometry.xml" path="//Member[@MemberName='Rect']/Docs" />
 		public Rect Rect
 		{
 			set { SetValue(RectProperty, value); }
 			get { return (Rect)GetValue(RectProperty); }
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/RoundRectangleGeometry.xml" path="//Member[@MemberName='CornerRadiusProperty']/Docs" />
 		public static readonly BindableProperty CornerRadiusProperty =
 			BindableProperty.Create(nameof(CornerRadius), typeof(CornerRadius), typeof(RoundRectangleGeometry), new CornerRadius(),
 				propertyChanged: OnCornerRadiusChanged);
@@ -39,6 +43,7 @@ namespace Microsoft.Maui.Controls.Shapes
 			(bindable as RoundRectangleGeometry)?.UpdateGeometry();
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/RoundRectangleGeometry.xml" path="//Member[@MemberName='CornerRadius']/Docs" />
 		public CornerRadius CornerRadius
 		{
 			set { SetValue(CornerRadiusProperty, value); }

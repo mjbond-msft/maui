@@ -2,6 +2,7 @@ using System;
 
 namespace Microsoft.Maui.Controls
 {
+	/// <include file="../../docs/Microsoft.Maui.Controls/PropertyChangingEventArgs.xml" path="Type[@FullName='Microsoft.Maui.Controls.PropertyChangingEventArgs']/Docs" />
 	public class PropertyChangingEventArgs : EventArgs
 	{
 		public PropertyChangingEventArgs(string propertyName)
@@ -9,6 +10,7 @@ namespace Microsoft.Maui.Controls
 			PropertyName = propertyName;
 		}
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/PropertyChangingEventArgs.xml" path="//Member[@MemberName='PropertyName']/Docs" />
 		public virtual string PropertyName { get; }
 	}
 }

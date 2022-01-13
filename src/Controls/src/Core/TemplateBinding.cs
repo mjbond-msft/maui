@@ -3,6 +3,7 @@ using System.Globalization;
 
 namespace Microsoft.Maui.Controls
 {
+	/// <include file="../../docs/Microsoft.Maui.Controls/TemplateBinding.xml" path="Type[@FullName='Microsoft.Maui.Controls.TemplateBinding']/Docs" />
 	[Obsolete("Use Binding.Source=RelativeBindingSource.TemplatedParent")]
 	public sealed class TemplateBinding : BindingBase
 	{
@@ -32,6 +33,7 @@ namespace Microsoft.Maui.Controls
 			StringFormat = stringFormat;
 		}
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/TemplateBinding.xml" path="//Member[@MemberName='Converter']/Docs" />
 		public IValueConverter Converter
 		{
 			get { return _converter; }
@@ -43,6 +45,7 @@ namespace Microsoft.Maui.Controls
 			}
 		}
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/TemplateBinding.xml" path="//Member[@MemberName='ConverterParameter']/Docs" />
 		public object ConverterParameter
 		{
 			get { return _converterParameter; }
@@ -54,6 +57,7 @@ namespace Microsoft.Maui.Controls
 			}
 		}
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/TemplateBinding.xml" path="//Member[@MemberName='Path']/Docs" />
 		public string Path
 		{
 			get { return _path; }

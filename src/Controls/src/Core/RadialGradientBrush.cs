@@ -2,6 +2,7 @@ using Microsoft.Maui.Graphics;
 
 namespace Microsoft.Maui.Controls
 {
+	/// <include file="../../docs/Microsoft.Maui.Controls/RadialGradientBrush.xml" path="Type[@FullName='Microsoft.Maui.Controls.RadialGradientBrush']/Docs" />
 	public class RadialGradientBrush : GradientBrush
 	{
 		public RadialGradientBrush()
@@ -27,6 +28,7 @@ namespace Microsoft.Maui.Controls
 			Radius = radius;
 		}
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/RadialGradientBrush.xml" path="//Member[@MemberName='IsEmpty']/Docs" />
 		public override bool IsEmpty
 		{
 			get
@@ -36,18 +38,22 @@ namespace Microsoft.Maui.Controls
 			}
 		}
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/RadialGradientBrush.xml" path="//Member[@MemberName='CenterProperty']/Docs" />
 		public static readonly BindableProperty CenterProperty = BindableProperty.Create(
 			nameof(Center), typeof(Point), typeof(RadialGradientBrush), new Point(0.5, 0.5));
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/RadialGradientBrush.xml" path="//Member[@MemberName='Center']/Docs" />
 		public Point Center
 		{
 			get => (Point)GetValue(CenterProperty);
 			set => SetValue(CenterProperty, value);
 		}
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/RadialGradientBrush.xml" path="//Member[@MemberName='RadiusProperty']/Docs" />
 		public static readonly BindableProperty RadiusProperty = BindableProperty.Create(
 			nameof(Radius), typeof(double), typeof(RadialGradientBrush), 0.5d);
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/RadialGradientBrush.xml" path="//Member[@MemberName='Radius']/Docs" />
 		public double Radius
 		{
 			get => (double)GetValue(RadiusProperty);

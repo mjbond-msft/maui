@@ -3,11 +3,14 @@ using Microsoft.Maui.Graphics;
 
 namespace Microsoft.Maui
 {
+	/// <include file="../../docs/Microsoft.Maui/SizeRequest.xml" path="Type[@FullName='Microsoft.Maui.SizeRequest']/Docs" />
 	[DebuggerDisplay("Request={Request.Width}x{Request.Height}, Minimum={Minimum.Width}x{Minimum.Height}")]
 	public struct SizeRequest
 	{
+		/// <include file="../../docs/Microsoft.Maui/SizeRequest.xml" path="//Member[@MemberName='Request']/Docs" />
 		public Size Request { get; set; }
 
+		/// <include file="../../docs/Microsoft.Maui/SizeRequest.xml" path="//Member[@MemberName='Minimum']/Docs" />
 		public Size Minimum { get; set; }
 
 		public SizeRequest(Size request, Size minimum)
@@ -22,6 +25,7 @@ namespace Microsoft.Maui
 			Minimum = request;
 		}
 
+		/// <include file="../../docs/Microsoft.Maui/SizeRequest.xml" path="//Member[@MemberName='ToString']/Docs" />
 		public override string ToString()
 		{
 			return string.Format("{{Request={0} Minimum={1}}}", Request, Minimum);

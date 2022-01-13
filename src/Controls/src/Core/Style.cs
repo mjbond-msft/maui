@@ -5,6 +5,7 @@ using Microsoft.Maui.Controls.Internals;
 
 namespace Microsoft.Maui.Controls
 {
+	/// <include file="../../docs/Microsoft.Maui.Controls/Style.xml" path="Type[@FullName='Microsoft.Maui.Controls.Style']/Docs" />
 	[ContentProperty("Setters")]
 	public sealed class Style : IStyle
 	{
@@ -32,8 +33,10 @@ namespace Microsoft.Maui.Controls
 			Setters = new List<Setter>();
 		}
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/Style.xml" path="//Member[@MemberName='ApplyToDerivedTypes']/Docs" />
 		public bool ApplyToDerivedTypes { get; set; }
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/Style.xml" path="//Member[@MemberName='BasedOn']/Docs" />
 		public Style BasedOn
 		{
 			get { return _basedOnStyle; }
@@ -51,6 +54,7 @@ namespace Microsoft.Maui.Controls
 			}
 		}
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/Style.xml" path="//Member[@MemberName='BaseResourceKey']/Docs" />
 		public string BaseResourceKey
 		{
 			get { return _baseResourceKey; }
@@ -73,14 +77,19 @@ namespace Microsoft.Maui.Controls
 			}
 		}
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/Style.xml" path="//Member[@MemberName='Behaviors']/Docs" />
 		public IList<Behavior> Behaviors => _behaviors ??= new AttachedCollection<Behavior>();
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/Style.xml" path="//Member[@MemberName='CanCascade']/Docs" />
 		public bool CanCascade { get; set; }
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/Style.xml" path="//Member[@MemberName='Class']/Docs" />
 		public string Class { get; set; }
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/Style.xml" path="//Member[@MemberName='Setters']/Docs" />
 		public IList<Setter> Setters { get; }
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/Style.xml" path="//Member[@MemberName='Triggers']/Docs" />
 		public IList<TriggerBase> Triggers => _triggers ??= new AttachedCollection<TriggerBase>();
 
 		void IStyle.Apply(BindableObject bindable)
@@ -97,6 +106,7 @@ namespace Microsoft.Maui.Controls
 			CleanUpWeakReferences();
 		}
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/Style.xml" path="//Member[@MemberName='TargetType']/Docs" />
 		public Type TargetType { get; }
 
 		void IStyle.UnApply(BindableObject bindable)

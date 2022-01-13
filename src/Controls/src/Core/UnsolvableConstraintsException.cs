@@ -3,6 +3,7 @@ using System;
 namespace Microsoft.Maui.Controls
 {
 #if !NETSTANDARD1_0
+	/// <include file="../../docs/Microsoft.Maui.Controls/UnsolvableConstraintsException.xml" path="Type[@FullName='Microsoft.Maui.Controls.UnsolvableConstraintsException']/Docs" />
 	[Serializable]
 #endif
 	public class UnsolvableConstraintsException : Exception

@@ -2,6 +2,7 @@
 
 namespace Microsoft.Maui.Controls
 {
+	/// <include file="../../docs/Microsoft.Maui.Controls/SolidColorBrush.xml" path="Type[@FullName='Microsoft.Maui.Controls.SolidColorBrush']/Docs" />
 	[System.ComponentModel.TypeConverter(typeof(BrushTypeConverter))]
 	public class SolidColorBrush : Brush
 	{
@@ -15,6 +16,7 @@ namespace Microsoft.Maui.Controls
 			Color = color;
 		}
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/SolidColorBrush.xml" path="//Member[@MemberName='IsEmpty']/Docs" />
 		public override bool IsEmpty
 		{
 			get
@@ -24,15 +26,18 @@ namespace Microsoft.Maui.Controls
 			}
 		}
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/SolidColorBrush.xml" path="//Member[@MemberName='ColorProperty']/Docs" />
 		public static readonly BindableProperty ColorProperty = BindableProperty.Create(
 			nameof(Color), typeof(Color), typeof(SolidColorBrush), null);
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/SolidColorBrush.xml" path="//Member[@MemberName='Color']/Docs" />
 		public virtual Color Color
 		{
 			get => (Color)GetValue(ColorProperty);
 			set => SetValue(ColorProperty, value);
 		}
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/SolidColorBrush.xml" path="//Member[@MemberName='Equals']/Docs" />
 		public override bool Equals(object obj)
 		{
 			if (!(obj is SolidColorBrush dest))
@@ -41,6 +46,7 @@ namespace Microsoft.Maui.Controls
 			return Color == dest.Color;
 		}
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/SolidColorBrush.xml" path="//Member[@MemberName='GetHashCode']/Docs" />
 		public override int GetHashCode()
 		{
 			return -1234567890 + Color.GetHashCode();

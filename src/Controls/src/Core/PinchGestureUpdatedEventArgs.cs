@@ -3,6 +3,7 @@ using Microsoft.Maui.Graphics;
 
 namespace Microsoft.Maui.Controls
 {
+	/// <include file="../../docs/Microsoft.Maui.Controls/PinchGestureUpdatedEventArgs.xml" path="Type[@FullName='Microsoft.Maui.Controls.PinchGestureUpdatedEventArgs']/Docs" />
 	public class PinchGestureUpdatedEventArgs : EventArgs
 	{
 		public PinchGestureUpdatedEventArgs(GestureStatus status, double scale, Point origin) : this(status)
@@ -16,10 +17,13 @@ namespace Microsoft.Maui.Controls
 			Status = status;
 		}
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/PinchGestureUpdatedEventArgs.xml" path="//Member[@MemberName='Scale']/Docs" />
 		public double Scale { get; } = 1;
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/PinchGestureUpdatedEventArgs.xml" path="//Member[@MemberName='ScaleOrigin']/Docs" />
 		public Point ScaleOrigin { get; }
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/PinchGestureUpdatedEventArgs.xml" path="//Member[@MemberName='Status']/Docs" />
 		public GestureStatus Status { get; }
 	}
 }

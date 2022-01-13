@@ -2,6 +2,7 @@ using FormsDevice = Microsoft.Maui.Controls.Device;
 
 namespace Microsoft.Maui.Controls
 {
+	/// <include file="../../docs/Microsoft.Maui.Controls/DeviceStateTrigger.xml" path="Type[@FullName='Microsoft.Maui.Controls.DeviceStateTrigger']/Docs" />
 	public sealed class DeviceStateTrigger : StateTriggerBase
 	{
 		public DeviceStateTrigger()
@@ -9,12 +10,14 @@ namespace Microsoft.Maui.Controls
 			UpdateState();
 		}
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/DeviceStateTrigger.xml" path="//Member[@MemberName='Device']/Docs" />
 		public string Device
 		{
 			get => (string)GetValue(DeviceProperty);
 			set => SetValue(DeviceProperty, value);
 		}
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/DeviceStateTrigger.xml" path="//Member[@MemberName='DeviceProperty']/Docs" />
 		public static readonly BindableProperty DeviceProperty =
 		BindableProperty.Create(nameof(Device), typeof(string), typeof(DeviceStateTrigger), string.Empty,
 			propertyChanged: OnDeviceChanged);

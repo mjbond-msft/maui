@@ -2,8 +2,10 @@ using System;
 
 namespace Microsoft.Maui.Controls
 {
+	/// <include file="../../../docs/Microsoft.Maui.Controls/ImageCell.xml" path="Type[@FullName='Microsoft.Maui.Controls.ImageCell']/Docs" />
 	public class ImageCell : TextCell
 	{
+		/// <include file="../../../docs/Microsoft.Maui.Controls/ImageCell.xml" path="//Member[@MemberName='ImageSourceProperty']/Docs" />
 		public static readonly BindableProperty ImageSourceProperty = BindableProperty.Create("ImageSource", typeof(ImageSource), typeof(ImageCell), null,
 			propertyChanging: (bindable, oldvalue, newvalue) => ((ImageCell)bindable).OnSourcePropertyChanging((ImageSource)oldvalue, (ImageSource)newvalue),
 			propertyChanged: (bindable, oldvalue, newvalue) => ((ImageCell)bindable).OnSourcePropertyChanged((ImageSource)oldvalue, (ImageSource)newvalue));
@@ -18,6 +20,7 @@ namespace Microsoft.Maui.Controls
 			};
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls/ImageCell.xml" path="//Member[@MemberName='ImageSource']/Docs" />
 		[System.ComponentModel.TypeConverter(typeof(ImageSourceConverter))]
 		public ImageSource ImageSource
 		{

@@ -11,6 +11,7 @@ namespace Microsoft.Maui.Controls.Shapes
 		Unknown = 4
 	}
 
+	/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/Matrix.xml" path="Type[@FullName='Microsoft.Maui.Controls.Shapes.Matrix']/Docs" />
 	[System.ComponentModel.TypeConverter(typeof(MatrixTypeConverter))]
 	public struct Matrix
 	{
@@ -41,13 +42,16 @@ namespace Microsoft.Maui.Controls.Shapes
 			DeriveMatrixType();
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/Matrix.xml" path="//Member[@MemberName='Identity']/Docs" />
 		public static Matrix Identity { get { return IdentityMatrix; } }
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/Matrix.xml" path="//Member[@MemberName='SetIdentity']/Docs" />
 		public void SetIdentity()
 		{
 			_type = MatrixTypes.Identity;
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/Matrix.xml" path="//Member[@MemberName='IsIdentity']/Docs" />
 		public bool IsIdentity
 		{
 			get
@@ -63,66 +67,78 @@ namespace Microsoft.Maui.Controls.Shapes
 			return trans1;
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/Matrix.xml" path="//Member[@MemberName='Multiply']/Docs" />
 		public static Matrix Multiply(Matrix trans1, Matrix trans2)
 		{
 			MatrixUtil.MultiplyMatrix(ref trans1, ref trans2);
 			return trans1;
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/Matrix.xml" path="//Member[@MemberName='Append']/Docs" />
 		public void Append(Matrix matrix)
 		{
 			this *= matrix;
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/Matrix.xml" path="//Member[@MemberName='Prepend']/Docs" />
 		public void Prepend(Matrix matrix)
 		{
 			this = matrix * this;
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/Matrix.xml" path="//Member[@MemberName='Rotate']/Docs" />
 		public void Rotate(double angle)
 		{
 			angle %= 360.0;
 			this *= CreateRotationRadians(angle * (Math.PI / 180.0));
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/Matrix.xml" path="//Member[@MemberName='RotatePrepend']/Docs" />
 		public void RotatePrepend(double angle)
 		{
 			angle %= 360.0;
 			this = CreateRotationRadians(angle * (Math.PI / 180.0)) * this;
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/Matrix.xml" path="//Member[@MemberName='RotateAt']/Docs" />
 		public void RotateAt(double angle, double centerX, double centerY)
 		{
 			angle %= 360.0;
 			this *= CreateRotationRadians(angle * (Math.PI / 180.0), centerX, centerY);
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/Matrix.xml" path="//Member[@MemberName='RotateAtPrepend']/Docs" />
 		public void RotateAtPrepend(double angle, double centerX, double centerY)
 		{
 			angle %= 360.0;
 			this = CreateRotationRadians(angle * (Math.PI / 180.0), centerX, centerY) * this;
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/Matrix.xml" path="//Member[@MemberName='Scale']/Docs" />
 		public void Scale(double scaleX, double scaleY)
 		{
 			this *= CreateScaling(scaleX, scaleY);
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/Matrix.xml" path="//Member[@MemberName='ScalePrepend']/Docs" />
 		public void ScalePrepend(double scaleX, double scaleY)
 		{
 			this = CreateScaling(scaleX, scaleY) * this;
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/Matrix.xml" path="//Member[@MemberName='ScaleAt']/Docs" />
 		public void ScaleAt(double scaleX, double scaleY, double centerX, double centerY)
 		{
 			this *= CreateScaling(scaleX, scaleY, centerX, centerY);
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/Matrix.xml" path="//Member[@MemberName='ScaleAtPrepend']/Docs" />
 		public void ScaleAtPrepend(double scaleX, double scaleY, double centerX, double centerY)
 		{
 			this = CreateScaling(scaleX, scaleY, centerX, centerY) * this;
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/Matrix.xml" path="//Member[@MemberName='Skew']/Docs" />
 		public void Skew(double skewX, double skewY)
 		{
 			skewX %= 360;
@@ -131,6 +147,7 @@ namespace Microsoft.Maui.Controls.Shapes
 									  skewY * (Math.PI / 180.0));
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/Matrix.xml" path="//Member[@MemberName='SkewPrepend']/Docs" />
 		public void SkewPrepend(double skewX, double skewY)
 		{
 			skewX %= 360;
@@ -139,6 +156,7 @@ namespace Microsoft.Maui.Controls.Shapes
 									 skewY * (Math.PI / 180.0)) * this;
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/Matrix.xml" path="//Member[@MemberName='Translate']/Docs" />
 		public void Translate(double offsetX, double offsetY)
 		{
 			//
@@ -170,11 +188,13 @@ namespace Microsoft.Maui.Controls.Shapes
 			}
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/Matrix.xml" path="//Member[@MemberName='TranslatePrepend']/Docs" />
 		public void TranslatePrepend(double offsetX, double offsetY)
 		{
 			this = CreateTranslation(offsetX, offsetY) * this;
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/Matrix.xml" path="//Member[@MemberName='Transform']/Docs" />
 		public Point Transform(Point point)
 		{
 			Point newPoint = point;
@@ -187,6 +207,7 @@ namespace Microsoft.Maui.Controls.Shapes
 			return new Point(x, y);
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/Matrix.xml" path="//Member[@MemberName='Transform']/Docs" />
 		public void Transform(Point[] points)
 		{
 			if (points != null)
@@ -204,6 +225,7 @@ namespace Microsoft.Maui.Controls.Shapes
 			}
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/Matrix.xml" path="//Member[@MemberName='Transform']/Docs" />
 		public Vector2 Transform(Vector2 vector)
 		{
 			Vector2 newVector = vector;
@@ -216,6 +238,7 @@ namespace Microsoft.Maui.Controls.Shapes
 			return new Vector2(x, y);
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/Matrix.xml" path="//Member[@MemberName='Transform']/Docs" />
 		public void Transform(Vector2[] vectors)
 		{
 			if (vectors != null)
@@ -233,6 +256,7 @@ namespace Microsoft.Maui.Controls.Shapes
 			}
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/Matrix.xml" path="//Member[@MemberName='Determinant']/Docs" />
 		public double Determinant
 		{
 			get
@@ -251,8 +275,10 @@ namespace Microsoft.Maui.Controls.Shapes
 			}
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/Matrix.xml" path="//Member[@MemberName='HasInverse']/Docs" />
 		public bool HasInverse { get { return Determinant != 0; } }
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/Matrix.xml" path="//Member[@MemberName='Invert']/Docs" />
 		public void Invert()
 		{
 			double determinant = Determinant;
@@ -299,6 +325,7 @@ namespace Microsoft.Maui.Controls.Shapes
 			}
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/Matrix.xml" path="//Member[@MemberName='M11']/Docs" />
 		public double M11
 		{
 			get
@@ -332,6 +359,7 @@ namespace Microsoft.Maui.Controls.Shapes
 			}
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/Matrix.xml" path="//Member[@MemberName='M12']/Docs" />
 		public double M12
 		{
 			get
@@ -362,6 +390,7 @@ namespace Microsoft.Maui.Controls.Shapes
 			}
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/Matrix.xml" path="//Member[@MemberName='M21']/Docs" />
 		public double M21
 		{
 			get
@@ -392,6 +421,7 @@ namespace Microsoft.Maui.Controls.Shapes
 			}
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/Matrix.xml" path="//Member[@MemberName='M22']/Docs" />
 		public double M22
 		{
 			get
@@ -425,6 +455,7 @@ namespace Microsoft.Maui.Controls.Shapes
 			}
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/Matrix.xml" path="//Member[@MemberName='OffsetX']/Docs" />
 		public double OffsetX
 		{
 			get
@@ -458,6 +489,7 @@ namespace Microsoft.Maui.Controls.Shapes
 			}
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/Matrix.xml" path="//Member[@MemberName='OffsetY']/Docs" />
 		public double OffsetY
 		{
 			get

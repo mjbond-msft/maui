@@ -2,6 +2,7 @@ using System;
 
 namespace Microsoft.Maui.Controls
 {
+	/// <include file="../../../docs/Microsoft.Maui.Controls/DropEventArgs.xml" path="Type[@FullName='Microsoft.Maui.Controls.DropEventArgs']/Docs" />
 	public class DropEventArgs
 	{
 		public DropEventArgs(DataPackageView view)
@@ -10,7 +11,9 @@ namespace Microsoft.Maui.Controls
 			Data = view;
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls/DropEventArgs.xml" path="//Member[@MemberName='Data']/Docs" />
 		public DataPackageView Data { get; }
+		/// <include file="../../../docs/Microsoft.Maui.Controls/DropEventArgs.xml" path="//Member[@MemberName='Handled']/Docs" />
 		public bool Handled { get; set; }
 	}
 }

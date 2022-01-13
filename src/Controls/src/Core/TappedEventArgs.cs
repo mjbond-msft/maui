@@ -2,6 +2,7 @@ using System;
 
 namespace Microsoft.Maui.Controls
 {
+	/// <include file="../../docs/Microsoft.Maui.Controls/TappedEventArgs.xml" path="Type[@FullName='Microsoft.Maui.Controls.TappedEventArgs']/Docs" />
 	public class TappedEventArgs : EventArgs
 	{
 		public TappedEventArgs(object parameter)
@@ -9,6 +10,7 @@ namespace Microsoft.Maui.Controls
 			Parameter = parameter;
 		}
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/TappedEventArgs.xml" path="//Member[@MemberName='Parameter']/Docs" />
 		public object Parameter { get; private set; }
 	}
 }

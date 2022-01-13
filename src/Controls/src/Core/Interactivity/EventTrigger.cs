@@ -7,6 +7,7 @@ using Microsoft.Maui.Controls.Internals;
 
 namespace Microsoft.Maui.Controls
 {
+	/// <include file="../../../docs/Microsoft.Maui.Controls/EventTrigger.xml" path="Type[@FullName='Microsoft.Maui.Controls.EventTrigger']/Docs" />
 	[ContentProperty("Actions")]
 	public sealed class EventTrigger : TriggerBase
 	{
@@ -23,8 +24,10 @@ namespace Microsoft.Maui.Controls
 			Actions = new SealedList<TriggerAction>();
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls/EventTrigger.xml" path="//Member[@MemberName='Actions']/Docs" />
 		public IList<TriggerAction> Actions { get; }
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls/EventTrigger.xml" path="//Member[@MemberName='Event']/Docs" />
 		public string Event
 		{
 			get { return _eventname; }

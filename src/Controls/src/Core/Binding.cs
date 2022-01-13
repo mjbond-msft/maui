@@ -6,8 +6,10 @@ using System.Reflection;
 
 namespace Microsoft.Maui.Controls
 {
+	/// <include file="../../docs/Microsoft.Maui.Controls/Binding.xml" path="Type[@FullName='Microsoft.Maui.Controls.Binding']/Docs" />
 	public sealed class Binding : BindingBase
 	{
+		/// <include file="../../docs/Microsoft.Maui.Controls/Binding.xml" path="//Member[@MemberName='SelfPath']/Docs" />
 		public const string SelfPath = ".";
 		IValueConverter _converter;
 		object _converterParameter;
@@ -36,6 +38,7 @@ namespace Microsoft.Maui.Controls
 			Source = source;
 		}
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/Binding.xml" path="//Member[@MemberName='Converter']/Docs" />
 		public IValueConverter Converter
 		{
 			get { return _converter; }
@@ -47,6 +50,7 @@ namespace Microsoft.Maui.Controls
 			}
 		}
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/Binding.xml" path="//Member[@MemberName='ConverterParameter']/Docs" />
 		public object ConverterParameter
 		{
 			get { return _converterParameter; }
@@ -58,6 +62,7 @@ namespace Microsoft.Maui.Controls
 			}
 		}
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/Binding.xml" path="//Member[@MemberName='Path']/Docs" />
 		public string Path
 		{
 			get { return _path; }
@@ -70,6 +75,7 @@ namespace Microsoft.Maui.Controls
 			}
 		}
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/Binding.xml" path="//Member[@MemberName='Source']/Docs" />
 		public object Source
 		{
 			get { return _source; }
@@ -82,8 +88,10 @@ namespace Microsoft.Maui.Controls
 			}
 		}
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/Binding.xml" path="//Member[@MemberName='DoNothing']/Docs" />
 		public static readonly object DoNothing = new object();
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/Binding.xml" path="//Member[@MemberName='UpdateSourceEventName']/Docs" />
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		public string UpdateSourceEventName
 		{

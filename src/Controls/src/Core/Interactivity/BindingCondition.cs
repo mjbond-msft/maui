@@ -3,6 +3,7 @@ using Microsoft.Maui.Controls.Xaml;
 
 namespace Microsoft.Maui.Controls
 {
+	/// <include file="../../../docs/Microsoft.Maui.Controls/BindingCondition.xml" path="Type[@FullName='Microsoft.Maui.Controls.BindingCondition']/Docs" />
 	[ProvideCompiled("Microsoft.Maui.Controls.XamlC.PassthroughValueProvider")]
 	[AcceptEmptyServiceProvider]
 	public sealed class BindingCondition : Condition, IValueProvider
@@ -17,6 +18,7 @@ namespace Microsoft.Maui.Controls
 			_boundProperty = BindableProperty.CreateAttached("Bound", typeof(object), typeof(BindingCondition), null, propertyChanged: OnBoundPropertyChanged);
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls/BindingCondition.xml" path="//Member[@MemberName='Binding']/Docs" />
 		public BindingBase Binding
 		{
 			get { return _binding; }
@@ -30,6 +32,7 @@ namespace Microsoft.Maui.Controls
 			}
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls/BindingCondition.xml" path="//Member[@MemberName='Value']/Docs" />
 		public object Value
 		{
 			get { return _triggerValue; }

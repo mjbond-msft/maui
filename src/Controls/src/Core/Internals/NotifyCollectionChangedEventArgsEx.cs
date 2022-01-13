@@ -4,6 +4,7 @@ using System.ComponentModel;
 
 namespace Microsoft.Maui.Controls.Internals
 {
+	/// <include file="../../../docs/Microsoft.Maui.Controls.Internals/NotifyCollectionChangedEventArgsEx.xml" path="Type[@FullName='Microsoft.Maui.Controls.Internals.NotifyCollectionChangedEventArgsEx']/Docs" />
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public class NotifyCollectionChangedEventArgsEx : NotifyCollectionChangedEventArgs
 	{
@@ -62,6 +63,7 @@ namespace Microsoft.Maui.Controls.Internals
 			Count = count;
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Internals/NotifyCollectionChangedEventArgsEx.xml" path="//Member[@MemberName='Count']/Docs" />
 		public int Count { get; private set; }
 	}
 }

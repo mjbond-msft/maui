@@ -1,5 +1,6 @@
 namespace Microsoft.Maui.Controls.Shapes
 {
+	/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/PolyQuadraticBezierSegment.xml" path="Type[@FullName='Microsoft.Maui.Controls.Shapes.PolyQuadraticBezierSegment']/Docs" />
 	public class PolyQuadraticBezierSegment : PathSegment
 	{
 		public PolyQuadraticBezierSegment()
@@ -12,9 +13,11 @@ namespace Microsoft.Maui.Controls.Shapes
 			Points = points;
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/PolyQuadraticBezierSegment.xml" path="//Member[@MemberName='PointsProperty']/Docs" />
 		public static readonly BindableProperty PointsProperty =
 			BindableProperty.Create(nameof(Points), typeof(PointCollection), typeof(PolyQuadraticBezierSegment), null);
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/PolyQuadraticBezierSegment.xml" path="//Member[@MemberName='Points']/Docs" />
 		public PointCollection Points
 		{
 			set { SetValue(PointsProperty, value); }

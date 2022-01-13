@@ -2,6 +2,7 @@ using Microsoft.Maui.Graphics;
 
 namespace Microsoft.Maui.Controls.Shapes
 {
+	/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/PathGeometry.xml" path="Type[@FullName='Microsoft.Maui.Controls.Shapes.PathGeometry']/Docs" />
 	[ContentProperty("Figures")]
 	public sealed class PathGeometry : Geometry
 	{
@@ -21,12 +22,15 @@ namespace Microsoft.Maui.Controls.Shapes
 			FillRule = fillRule;
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/PathGeometry.xml" path="//Member[@MemberName='FiguresProperty']/Docs" />
 		public static readonly BindableProperty FiguresProperty =
 			BindableProperty.Create(nameof(Figures), typeof(PathFigureCollection), typeof(PathGeometry), null);
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/PathGeometry.xml" path="//Member[@MemberName='FillRuleProperty']/Docs" />
 		public static readonly BindableProperty FillRuleProperty =
 			BindableProperty.Create(nameof(FillRule), typeof(FillRule), typeof(PathGeometry), FillRule.EvenOdd);
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/PathGeometry.xml" path="//Member[@MemberName='Figures']/Docs" />
 		[System.ComponentModel.TypeConverter(typeof(PathFigureCollectionConverter))]
 		public PathFigureCollection Figures
 		{
@@ -34,12 +38,14 @@ namespace Microsoft.Maui.Controls.Shapes
 			get { return (PathFigureCollection)GetValue(FiguresProperty); }
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/PathGeometry.xml" path="//Member[@MemberName='FillRule']/Docs" />
 		public FillRule FillRule
 		{
 			set { SetValue(FillRuleProperty, value); }
 			get { return (FillRule)GetValue(FillRuleProperty); }
 		}
 
+		/// <include file="../../../docs/Microsoft.Maui.Controls.Shapes/PathGeometry.xml" path="//Member[@MemberName='AppendPath']/Docs" />
 		public override void AppendPath(PathF path)
 		{
 			foreach (var f in Figures)

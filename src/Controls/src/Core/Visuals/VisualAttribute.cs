@@ -4,6 +4,7 @@ using System.Text;
 
 namespace Microsoft.Maui.Controls
 {
+	/// <include file="../../../docs/Microsoft.Maui.Controls/VisualAttribute.xml" path="Type[@FullName='Microsoft.Maui.Controls.VisualAttribute']/Docs" />
 	[AttributeUsage(AttributeTargets.Assembly, AllowMultiple = true)]
 	public class VisualAttribute : Attribute
 	{

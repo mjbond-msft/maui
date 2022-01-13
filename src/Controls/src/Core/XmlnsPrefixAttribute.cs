@@ -2,6 +2,7 @@ using System;
 
 namespace Microsoft.Maui.Controls
 {
+	/// <include file="../../docs/Microsoft.Maui.Controls/XmlnsPrefixAttribute.xml" path="Type[@FullName='Microsoft.Maui.Controls.XmlnsPrefixAttribute']/Docs" />
 	[AttributeUsage(AttributeTargets.Assembly, AllowMultiple = true)]
 	public sealed class XmlnsPrefixAttribute : Attribute
 	{
@@ -11,7 +12,9 @@ namespace Microsoft.Maui.Controls
 			Prefix = prefix ?? throw new ArgumentNullException(nameof(prefix));
 		}
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/XmlnsPrefixAttribute.xml" path="//Member[@MemberName='XmlNamespace']/Docs" />
 		public string XmlNamespace { get; }
+		/// <include file="../../docs/Microsoft.Maui.Controls/XmlnsPrefixAttribute.xml" path="//Member[@MemberName='Prefix']/Docs" />
 		public string Prefix { get; }
 	}
 }

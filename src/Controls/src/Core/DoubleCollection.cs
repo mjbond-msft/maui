@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace Microsoft.Maui.Controls
 {
+	/// <include file="../../docs/Microsoft.Maui.Controls/DoubleCollection.xml" path="Type[@FullName='Microsoft.Maui.Controls.DoubleCollection']/Docs" />
 	[System.ComponentModel.TypeConverter(typeof(DoubleCollectionConverter))]
 	public sealed class DoubleCollection : ObservableCollection<double>
 	{

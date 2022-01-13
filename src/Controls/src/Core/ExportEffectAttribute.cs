@@ -2,6 +2,7 @@ using System;
 
 namespace Microsoft.Maui.Controls
 {
+	/// <include file="../../docs/Microsoft.Maui.Controls/ExportEffectAttribute.xml" path="Type[@FullName='Microsoft.Maui.Controls.ExportEffectAttribute']/Docs" />
 	[AttributeUsage(AttributeTargets.Assembly, AllowMultiple = true)]
 	public sealed class ExportEffectAttribute : Attribute
 	{

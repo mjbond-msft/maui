@@ -4,6 +4,7 @@ using System.ComponentModel;
 
 namespace Microsoft.Maui.Controls
 {
+	/// <include file="../../docs/Microsoft.Maui.Controls/GradientBrush.xml" path="Type[@FullName='Microsoft.Maui.Controls.GradientBrush']/Docs" />
 	[ContentProperty(nameof(GradientStops))]
 	public abstract class GradientBrush : Brush
 	{
@@ -14,10 +15,12 @@ namespace Microsoft.Maui.Controls
 
 		public event EventHandler InvalidateGradientBrushRequested;
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/GradientBrush.xml" path="//Member[@MemberName='GradientStopsProperty']/Docs" />
 		public static readonly BindableProperty GradientStopsProperty =
 			BindableProperty.Create(nameof(GradientStops), typeof(GradientStopCollection), typeof(GradientBrush), null,
 				propertyChanged: OnGradientStopsChanged);
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/GradientBrush.xml" path="//Member[@MemberName='GradientStops']/Docs" />
 		public GradientStopCollection GradientStops
 		{
 			get => (GradientStopCollection)GetValue(GradientStopsProperty);

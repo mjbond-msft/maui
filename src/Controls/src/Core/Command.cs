@@ -4,6 +4,7 @@ using System.Windows.Input;
 
 namespace Microsoft.Maui.Controls
 {
+	/// <include file="../../docs/Microsoft.Maui.Controls/Command.xml" path="Type[@FullName='Microsoft.Maui.Controls.Command']/Docs" />
 	public sealed class Command<T> : Command
 	{
 		public Command(Action<T> execute)
@@ -57,6 +58,7 @@ namespace Microsoft.Maui.Controls
 		}
 	}
 
+	/// <include file="../../docs/Microsoft.Maui.Controls/Command.xml" path="Type[@FullName='Microsoft.Maui.Controls.Command']/Docs" />
 	public class Command : ICommand
 	{
 		readonly Func<object, bool> _canExecute;
@@ -93,6 +95,7 @@ namespace Microsoft.Maui.Controls
 				throw new ArgumentNullException(nameof(canExecute));
 		}
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/Command.xml" path="//Member[@MemberName='CanExecute']/Docs" />
 		public bool CanExecute(object parameter)
 		{
 			if (_canExecute != null)
@@ -107,11 +110,13 @@ namespace Microsoft.Maui.Controls
 			remove { _weakEventManager.RemoveEventHandler(value); }
 		}
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/Command.xml" path="//Member[@MemberName='Execute']/Docs" />
 		public void Execute(object parameter)
 		{
 			_execute(parameter);
 		}
 
+		/// <include file="../../docs/Microsoft.Maui.Controls/Command.xml" path="//Member[@MemberName='ChangeCanExecute']/Docs" />
 		public void ChangeCanExecute()
 		{
 			_weakEventManager.HandleEvent(this, EventArgs.Empty, nameof(CanExecuteChanged));
