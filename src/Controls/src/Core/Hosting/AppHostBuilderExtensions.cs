@@ -65,12 +65,12 @@ namespace Microsoft.Maui.Controls.Hosting
 #if WINDOWS || ANDROID
 			handlersCollection.AddHandler<NavigationPage, NavigationViewHandler>();
 			handlersCollection.AddHandler<Toolbar, ToolbarHandler>();
+			handlersCollection.AddHandler<SwipeView, SwipeViewHandler>();
+			handlersCollection.AddHandler<SwipeItem, SwipeItemMenuItemHandler>();
 #endif
 #if ANDROID
 			handlersCollection.AddHandler<TabbedPage, Controls.Handlers.TabbedPageHandler>();
 			handlersCollection.AddHandler<FlyoutPage, FlyoutViewHandler>();
-			handlersCollection.AddHandler<SwipeView, SwipeViewHandler>();
-			handlersCollection.AddHandler<SwipeItem, SwipeItemMenuItemHandler>();
 			handlersCollection.AddHandler<SwipeItemView, SwipeItemViewHandler>();
 #endif
 			return handlersCollection;
