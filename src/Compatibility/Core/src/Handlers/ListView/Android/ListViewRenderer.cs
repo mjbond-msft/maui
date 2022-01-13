@@ -68,7 +68,7 @@ namespace Microsoft.Maui.Controls.Handlers.Compatibility
 			_adapter.IsAttachedToWindow = _isAttached;
 		}
 
-		protected override AListView CreateNativeView()
+		protected override AListView CreateNativeControl()
 		{
 			return new AListView(Context);
 		}
@@ -127,6 +127,13 @@ namespace Microsoft.Maui.Controls.Handlers.Compatibility
 			if (e.NewElement != null)
 			{
 				AListView nativeListView = Control;
+
+				if(nativeListView == null)
+				{
+					nativeListView = CreateNativeControl();
+					SetNativeControl(nativeListView);
+				}
+
 				var ctx = Context;
 				_headerView = new Container(ctx);
 				nativeListView.AddHeaderView(_headerView, null, false);

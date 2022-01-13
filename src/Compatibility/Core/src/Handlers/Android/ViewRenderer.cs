@@ -12,35 +12,44 @@ using PlatformView = Android.Views.View;
 
 namespace Microsoft.Maui.Controls.Handlers.Compatibility
 {
-	public partial class ViewRenderer<TElement, TNativeView> : ViewHandler<TElement, TNativeView>
+	public partial class ViewRenderer<TElement, TNativeView> : ViewHandler<TElement, TNativeView>, IDisposable
 		where TElement : Element, IView
 		where TNativeView : PlatformView
 	{
-
+		bool _isDisposed;
 		TNativeView? _nativeView;
+		TElement? _virtualView;
+
 		// The casts here are to get around the fact that if you access VirtualView
 		// before it's been initialized you'll get an exception
-		public TElement? Element => ((IElementHandler)this).VirtualView as TElement;
-		public TNativeView? Control => ((IElementHandler)this).NativeView as TNativeView;
+		public TElement? Element => ((IElementHandler)this).VirtualView as TElement ?? _virtualView;
+		public TNativeView? Control => ((IElementHandler)this).NativeView as TNativeView ?? _nativeView;
 
 		public IViewParent? Parent => Control?.Parent;
 
-		public ViewRenderer(IPropertyMapper mapper) : base(ViewHandler.ViewMapper)
+
+		public ViewRenderer() : this(ViewHandler.ViewMapper)
+		{
+
+		}
+
+		public ViewRenderer(IPropertyMapper? mapper) : base(mapper ?? ViewHandler.ViewMapper)
 		{
 		}
 
 		protected override TNativeView CreateNativeView()
 		{
-			var nativeView = _nativeView;
-			_nativeView = null;
-			return nativeView ?? throw new NotImplementedException();
+			return _nativeView ?? CreateNativeControl();
 		}
 
-		protected virtual TNativeView CreateNativeControl() => CreateNativeView();
+		protected virtual TNativeView CreateNativeControl()
+		{
+			return default(TNativeView)!;
+		}
 
 		protected void SetNativeControl(TNativeView control)
 		{			
-			if(NativeView != null && control != null)
+			if(Control != null && control != null)
 			{
 				throw new NotImplementedException("Changing the NativeView is currently not supported");
 			}
@@ -63,9 +72,10 @@ namespace Microsoft.Maui.Controls.Handlers.Compatibility
 
 		public override void SetVirtualView(IView view)
 		{
+			_virtualView = view as TElement;
 			var oldElement = Element;
+			OnElementChanged(new ElementChangedEventArgs<TElement>(oldElement, _virtualView));
 			base.SetVirtualView(view);
-			OnElementChanged(new ElementChangedEventArgs<TElement>(oldElement, Element));
 		}
 
 		void OnViewDetatchedFromWindow(object? sender, AView.ViewDetachedFromWindowEventArgs e) => OnDetachedFromWindow();
@@ -117,6 +127,27 @@ namespace Microsoft.Maui.Controls.Handlers.Compatibility
 			}
 
 			return size;
+		}
+
+
+		protected override void DisconnectHandler(TNativeView nativeView)
+		{
+			base.DisconnectHandler(nativeView);
+			((IDisposable)this).Dispose();
+		}
+
+		void IDisposable.Dispose()
+		{
+			if (_isDisposed)
+				return;
+
+			Dispose(true);
+			_isDisposed = true;
+		}
+
+		protected virtual void Dispose(bool disposing)
+		{
+			_isDisposed = true;
 		}
 	}
 }

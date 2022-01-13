@@ -49,8 +49,13 @@ namespace Microsoft.Maui.Controls.Handlers.Compatibility
 
 		internal EditText GetEditText(global::Android.Views.View v)
 		{
-			var viewGroup = v as ViewGroup;
-			return viewGroup.GetFirstChildOfType<EditText>();
+			if (v is EditText editText)
+				return editText;
+
+			if (v is ViewGroup vg)
+				return vg.GetFirstChildOfType<EditText>();
+
+			return null;
 		}
 	}
 }
