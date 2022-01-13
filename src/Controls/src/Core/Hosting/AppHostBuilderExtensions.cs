@@ -69,13 +69,6 @@ namespace Microsoft.Maui.Controls.Hosting
 #if __ANDROID__
 			handlersCollection.AddHandler<TabbedPage, Controls.Handlers.TabbedPageHandler>();
 			handlersCollection.AddHandler<FlyoutPage, FlyoutViewHandler>();
-			handlersCollection.AddHandler<ListView, Controls.Handlers.Compatibility.ListViewRenderer>();
-			handlersCollection.AddHandler<Cell, Controls.Handlers.Compatibility.CellRenderer>();
-			handlersCollection.AddHandler<ImageCell, Controls.Handlers.Compatibility.ImageCellRenderer>();
-			handlersCollection.AddHandler<EntryCell, Controls.Handlers.Compatibility.EntryCellRenderer>();
-			handlersCollection.AddHandler<TextCell, Controls.Handlers.Compatibility.TextCellRenderer>();
-			handlersCollection.AddHandler<ViewCell, Controls.Handlers.Compatibility.ViewCellRenderer>();
-			handlersCollection.AddHandler<SwitchCell, Controls.Handlers.Compatibility.SwitchCellRenderer>();
 #endif
 			return handlersCollection;
 		}
